@@ -123,6 +123,7 @@ def clear_all():
 def get_serverinfo():
     if not connected:
         return
+    resp = ''
     # create a message to send
     message = '{"command":"serverinfo"}\n'
     try:
@@ -133,6 +134,7 @@ def get_serverinfo():
         resp = recv_timeout(s)
     except socket.error, exc:
         print "Error while reciving the data\nMessage: ", exc
+    return resp
     
 #def set_image()
 #def transform()
