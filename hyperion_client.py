@@ -1,15 +1,15 @@
 """
 hyperion_client.py module.
 
-Connect to the hyperion json interface and send/recieve messages.
+Connect to the hyperion json interface and send/receive messages.
 """
 import json
 import socket
 import time
 
 
-class Hyperion_client:
-    """Hyperion_client class."""
+class hyperion_client:
+    """Hyperion JSON interface client class."""
 
     def __init__(self, host='127.0.0.1', port=19444):
         """
@@ -26,23 +26,39 @@ class Hyperion_client:
 # -IP-
     @property
     def host(self):
-        """Return ip address."""
+        """
+        Return ip address.
+
+        :return: ip address of the hyperion server host
+        """
         return self._host
 
     @host.setter
     def host(self, host):
-        """Set ip address."""
+        """
+        Set ip address.
+
+        :param host: ip address of the hyperion server host
+        """
         self._host = str(host)
 
 # -PORT-
     @property
     def port(self):
-        """Return port."""
+        """
+        Return port.
+
+        :return: port of the hyperion server host
+        """
         return self._port
 
     @port.setter
     def port(self, port):
-        """Set port."""
+        """
+        Set port.
+
+        :param port: port of the hyperion server host
+        """
         self._port = int(port)
 
 # -SOCKET-
@@ -57,7 +73,11 @@ class Hyperion_client:
 # -CONNECTION-
     @property
     def connected(self):
-        """Return connection status."""
+        """
+        Return connection status.
+
+        :return: boolean value of the connection status. True if connected
+        """
         return self._connected
 
 # @connected.setter
@@ -95,9 +115,10 @@ class Hyperion_client:
                 print("Could not close socket connection\nMessage: ", exc)
 
     def recv_timeout(self, timeout=2):
-        """Recieve data from socket.
+        """Receive data from socket.
 
         :param timeout: time period to wait when waiting for hyperion server
+        :return: the received string
         """
         # make socket non blocking
         self.__socket.setblocking(0)
@@ -129,7 +150,11 @@ class Hyperion_client:
         return ''.join(total_data)
 
     def test_connection(self):
-        """Open socket connection to the server (if not already open)."""
+        """
+        Open socket connection to the server (if not already open).
+
+        :return: boolean value of the connection status. True if connected
+        """
         if not self._connected:
             print("Not connected to Hyperion server: autoconnecting...")
             self.open_connection()
@@ -148,7 +173,11 @@ class Hyperion_client:
 ###############################################################################
 
     def response_serverinfo(self):
-        """Get responses to the latest commands sent and all the other informations from the hyperion json server."""
+        """
+        Get responses to the latest commands sent and all the other infos from the hyperion json server.
+
+        :return: json structure containing infos from the hyperion json server
+        """
         if not self.test_connection():
             return
         resp = ''
@@ -158,22 +187,34 @@ class Hyperion_client:
         try:
             resp = self.recv_timeout()
         except socket.error as exc:
-            print("Error while reciving the data\nMessage: ", exc)
+            print("Error while receiving the data\nMessage: ", exc)
         return resp
 
     def serverinfo(self):
-        """Get informations from the hyperion json server."""
+        """
+        Get informations from the hyperion json server.
+
+        :return: json structure containing infos from the hyperion json server
+        """
         resp = self.response_serverinfo()
         info = resp[resp.find('{"info":{'):]
         parsed = json.loads(info)
         return parsed
 
     def effects(self):
-        """Get all the effects from the hyperion json server."""
+        """
+        Get all the effects from the hyperion json server.
+
+        :return: json structure containing all the effects from hyperion.
+        """
         return self.serverinfo()["info"]["effects"]
 
     def effects_names(self):
-        """Get the name of all the effects from the hyperion json server."""
+        """
+        Get the name of all the effects from hyperion.
+
+        :return: array of effects names
+        """
         effects_name = []
         effects_list = self.effects()
         for e in effects_list:
@@ -181,11 +222,19 @@ class Hyperion_client:
         return effects_name
 
     def active_effects(self):
-        """Get all the active effects from the hyperion json server."""
+        """
+        Get all the active effects from hyperion.
+
+        :return: json structure containing all the active effects
+        """
         return self.serverinfo()["info"]["activeEffects"]
 
     def active_effects_names(self):
-        """Get the name of all the active effects from the hyperion json server."""
+        """
+        Get the name of all the active effects from hyperion.
+
+        :return: array of active effects names
+        """
         effect_list = []
         priority_list = []
         parsed = self.serverinfo()
@@ -203,64 +252,92 @@ class Hyperion_client:
                 raise NameError("Cannot find a name for some of the current effects\nYou may be using custom args\n", s)
         return effect_list
 
-    def active_color(self, MODE=None):
+    def active_color(self, mode=None):
         """
-        Get the active color from the hyperion json server.
+        Get the active color from hyperion.
 
-        :param MODE: format of the color ("RGB", "HEX", "HLS")
+        :param mode: format of the color ("RGB", "HEX", "HLS"). No param or falsey param = all the formats
+        :return: color value or list of color values
         """
         activeColor = self.serverinfo()["info"]["activeLedColor"]
         if activeColor:
-            if str(MODE) == "RGB":
+            if str(mode) == "RGB":
                 return self.active_color()[0]["RGB Value"]
-            elif str(MODE) == "HEX":
+            elif str(mode) == "HEX":
                 return self.active_color()[0]["HEX Value"]
-            elif str(MODE) == "HLS":
+            elif str(mode) == "HLS":
                 return self.active_color()[0]["HLS Value"]
         return activeColor
 
     # def current():
 
     def transform(self):
-        """Get the transform values from the hyperion json server."""
+        """
+        Get the transform values from hyperion.
+
+        :return: json structure containing transform values
+        """
         return self.serverinfo()["info"]["transform"]
 
     def temperature(self):
-        """Get the temperature values from the hyperion json server."""
+        """
+        Get the temperature values from hyperion.
+
+        :return: json structure containing temperature values
+        """
         return self.serverinfo()["info"]["temperature"]
 
     def adjustment(self):
-        """Get the adjustment values from the hyperion json server."""
+        """
+        Get the adjustment values from hyperion.
+
+        :return: json structure containing adjustment values
+        """
         return self.serverinfo()["info"]["adjustment"]
 
     def correction(self):
-        """Get the correction values from the hyperion json server."""
+        """
+        Get the correction values from hyperion.
+
+        :return: json structure containing correction values
+        """
         return self.serverinfo()["info"]["correction"]
 
     def priorities(self):
-        """Get the property values from the hyperion json server."""
+        """
+        Get the property values from hyperion.
+
+        :return: json structure containing priority values
+        """
         return self.serverinfo()["info"]["priorities"]
 
     def hostname(self):
-        """Get the hostname from the hyperion json server."""
+        """
+        Get the hostname from hyperion.
+
+        :return: name of the host of hyperion
+        """
         return self.serverinfo()["info"]["hostname"]
 
     def hyperion_build(self):
-        """Get the hyperion build info from the hyperion json server."""
+        """
+        Get the hyperion build info from hyperion.
+
+        :return: name of the host of hyperion
+        """
         return self.serverinfo()["info"]["hyperion_build"]
 
 ###############################################################################
 
     def set_RGBcolor(self, red, green, blue, priority=100, duration=0):
         """
-        Send the led data in a message format the hyperion json server understands.
+        Send effect to the hyperion json server.
 
         :param red: red value in RGB format [0-255]
         :param green: green value in RGB format [0-255]
         :param blue: blue value in RGB format [0-255]
-        :param priority: priority value of the color
-        :param duration: duration of the color
-        :type :
+        :param priority: priority value
+        :param duration: duration in milliseconds
         """
         if not self.test_connection():
             return
@@ -278,9 +355,9 @@ class Hyperion_client:
         Send effect to the hyperion json server.
 
         :param effectName: Name of the effect
-        :param prioity: Priority of the effect
+        :param priority: priority value
         :param effectArgs: Custom arguments for the effect
-        :param duration: Duration for the effect, in millisecons
+        :param duration: duration in milliseconds
         """
         if not self.test_connection():
             return
@@ -316,7 +393,15 @@ class Hyperion_client:
         self.send_message(message)
 
     def set_image(self, image_data, width, height, priority=100, duration=0):
-        """Set leds to the color of the image border."""
+        """
+        Set leds to the color of the image border.
+
+        :param image_data: base64 RGB888 image data
+        :param width: width of the image
+        :param height: height of the image
+        :param priority: priority value
+        :param duration: duration in milliseconds
+        """
         if not self.test_connection():
             return
         # create a message to send
@@ -331,7 +416,21 @@ class Hyperion_client:
         self.send_message(message)
 
     def set_transform(self, identifier, blacklevel, gamma, luminanceGain, luminanceMinimum, saturationGain, saturationLGain, threshold, valueGain, whitelevel):
-        """Send the transform values to the hyperion json server."""
+        """
+        Send the transform values to the hyperion json server.
+
+        :param identifier: transform id for the hyperion server to identify it
+        :param blacklevel: black level value
+        :param gamma: gamma value
+        :param luminanceGain: luminance gain value
+        :param luminanceMinimum: luminance minimum value
+        :param saturationGain: saturation gain value
+        :param saturationLGain: saturationLGain value
+        :param threshold: threshold
+        :param valueGain: value gain
+        :param whitelevel: white level value
+        :return:
+        """
         if not self.test_connection():
             return
         # create a message to send
@@ -353,6 +452,11 @@ class Hyperion_client:
     def set_correction(self, identifier, red, green, blue):
         """
         Send the correction values to the hyperion json server.
+
+        :param identifier: correction's id for the hyperion server to identify it
+        :param red: red value in RGB format [0-255]
+        :param green: green value in RGB format [0-255]
+        :param blue: blue value in RGB format [0-255]
         """
         if not self.test_connection():
             return
@@ -365,7 +469,14 @@ class Hyperion_client:
         self.send_message(message)
 
     def set_temperature(self, identifier, red, green, blue):
-        """Send the temperature values to the hyperion json server."""
+        """
+        Send the temperature values to the hyperion json server.
+
+        :param identifier: temperature's id for the hyperion server to identify it
+        :param red: red value in RGB format [0-255]
+        :param green: green value in RGB format [0-255]
+        :param blue: blue value in RGB format [0-255]
+        """
         if not self.test_connection():
             return
         # create a message to send
@@ -377,9 +488,16 @@ class Hyperion_client:
         self.send_message(message)
 
     def set_adjustment(self, identifier, redAdjust, greenAdjust, blueAdjust):
-        """Send the adjustment values to the hyperion json server."""
+        """
+        Send the adjustment values to the hyperion json server.
+
+        :param identifier: adjustment's id for the hyperion server to identify it
+        :param redAdjust: value of the red adjustment in RGB format [0-255]
+        :param greenAdjust: value of the green adjustment in RGB format [0-255]
+        :param blueAdjust: value of the blue adjustment in RGB format [0-255]
+        """
         if not self.test_connection():
-            return
+                        return
         # create a message to send
         message = '{"command":"adjustment","adjustment":{"id":"' + str(identifier)
         message += '","redAdjust":[' + str(redAdjust[0]) + ',' + str(redAdjust[1]) + ',' + str(redAdjust[2])
@@ -391,9 +509,11 @@ class Hyperion_client:
 
     def send_led_data(self, led_data, priority=100, duration=0):
         """
-        Send the led data in a message format the hyperion json server understands.
+        Send the led data in a message format that hyperion can understand.
 
         :param led_data: bytearray of the led data (r,g,b) * hyperion.ledcount
+        :param priority: priority value
+        :param duration: duration in milliseconds
         """
         if not self.test_connection():
             return
