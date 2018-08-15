@@ -1,2 +1,2 @@
 # Hyperion_JSON_client
-JSON client for Hyperion, written in Python
+Module for Hyperion JSON interface, written in Python
