@@ -119,7 +119,7 @@ retrive the list of all the active effects names form the Hyperion server
 my_active_effects_names = h.active_effects_names()
 ```
 
-### Get active effects name
+### Get active color
 retrive a list containing the RGB, HEX, HLS values of the active color form the Hyperion server
 ```python
 my_active_color = h.active_color()
