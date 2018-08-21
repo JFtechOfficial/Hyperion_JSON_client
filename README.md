@@ -58,7 +58,7 @@ You can also modify the timout duration of the connection attempt (by default: 1
 ```python
 h.open_connection(timeout=10)
 ```
-if you try to [**Get**](##-Get-server-info) from the server without opening a connection first, the function will try to automtically connect
+if you try to interact with the server without opening a connection first, the functions of this module will try to connect automatically.
 
 ### Disconnect
 Disconnect from the Hyperion server
