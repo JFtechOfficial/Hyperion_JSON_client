@@ -35,7 +35,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 
 ## ▶️ Usage
-In order to use this module you have to import it in yotu python project
+In order to use this module you have to import it in your python project
 ```python
 import hyperion_client as hy
 ```
@@ -66,23 +66,23 @@ h.close_connection()
 ```
 
 ### host
-Change the IP address of the Hyperion server you want to connect to.
+Change the IP address of the Hyperion server you want to connect to
 ```python
 h.host = '192.168.1.42'
 ```
-When you change the host you need to reconnect.
-Get the IP address of the Hyperion server you want to connect to.
+When you change the host you need to reconnect. 
+Get the IP address of the Hyperion server you want to connect to
 ```python
 my_host = h.host()
 ```
 
 ### port
-Change the port of the Hyperion server you want to connect to.
+Change the port of the Hyperion server you want to connect to
 ```python
 h.port = 19444
 ```
-When you change the port you need to reconnect.
-Get the port of the Hyperion server you want to connect to.
+When you change the port you need to reconnect. 
+Get the port of the Hyperion server you want to connect to
 ```python
 my_port = h.port()
 ```
@@ -95,7 +95,7 @@ my_server_info = h.serverinfo()
 ```
 
 ### Get effects info
-retrive the list of all the available effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect name)
+retrive the list of all the available effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect args)
 ```python
 my_effects = h.effects()
 ```
@@ -107,19 +107,19 @@ my_effects_names = h.effects_names()
 ```
 
 ### Get active effects info
-retrive the list of all the active effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect name)
+retrive the list of all the active effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect args)
 ```python
 my_active_effects = h.active_effects()
 ```
 
 ### Get active effects name
-retrive the list of all the active effects names form the Hyperion server.
+retrive the list of all the active effects names form the Hyperion server
 ```python
 my_active_effects_names = h.active_effects_names()
 ```
 
 ### Get active effects name
-retrive a list containing the RGB, HEX, HLS values of the active color form the Hyperion server.
+retrive a list containing the RGB, HEX, HLS values of the active color form the Hyperion server
 ```python
 my_active_color = h.active_color()
 ```
@@ -160,17 +160,17 @@ h.set_effect('Rainbow swirl fast', priority=100, effectArgs=my_args, duration=10
 ```
 
 ### Clear
-Clear the highest priority active effect/color (with lower priority value).
+Clear the highest priority active effect/color (with lower priority value)
 ```python
 h.clear()
 ```
-You can change the priority channel for the color/effect to clear using the priority param (default: 100).
+You can change the priority channel for the color/effect to clear using the priority param (default: 100)
 ```python
 h.clear(100)
 ```
 
 ### Clear all
-Clear all the active effects/color.
+Clear all the active effects/color
 ```python
 h.clear_all()
 ```
