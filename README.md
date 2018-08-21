@@ -28,10 +28,10 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 
 ## 💾 Installation
-
-* Do this
-
-* Then this
+Open a terminal window and run the command:
+```shell
+pip install hyperion-client
+```
 
 
 ## ▶️ Usage
