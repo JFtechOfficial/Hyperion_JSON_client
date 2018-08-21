@@ -1,5 +1,5 @@
 # Hyperion Client
-[insert full size banner or large logo](https://linktr.ee/jftechofficial)
+
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) ![license](https://img.shields.io/github/license/JFtechOfficial/hyperion-client.svg) ![GitHub issues](https://img.shields.io/github/issues/JFtechOfficial/hyperion-client.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JFtechOfficial/hyperion-client.svg) ![GitHub top language](https://img.shields.io/github/languages/top/JFtechOfficial/hyperion-client.svg) ![Requires.io](https://img.shields.io/requires/github/JFtechOfficial/hyperion-client.svg)
 
 Client module for the Hyperion JSON interface. You can also read this in [Italiano🇮🇹](README-it-IT.md)
@@ -24,7 +24,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 ### Requirements
 
-* wokring instance of Hyperion
+* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested).
 
 
 ## 💾 Installation
@@ -38,6 +38,11 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 How to use something
 *(example)*
+```python
+import hyperion_client as hy
+
+h = hy.hyperion_client('192.168.1.42', 19444)
+```
 
 
 ## 📚 Resources
@@ -53,7 +58,7 @@ Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
 ## ❤️ Credits
 
 Major dependencies:
-* [repository_template](https://github.com/csparpa/repository_template)
+* [hyperion](https://github.com/hyperion-project/hyperion)
 
 
 ## 💵 Support Me!
