@@ -1,6 +1,6 @@
 # Hyperion Client
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) ![license](https://img.shields.io/github/license/JFtechOfficial/hyperion-client.svg) ![GitHub issues](https://img.shields.io/github/issues/JFtechOfficial/hyperion-client.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JFtechOfficial/hyperion-client.svg) ![GitHub top language](https://img.shields.io/github/languages/top/JFtechOfficial/hyperion-client.svg) ![Requires.io](https://img.shields.io/requires/github/JFtechOfficial/hyperion-client.svg)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) ![license](https://img.shields.io/github/license/JFtechOfficial/hyperion-client.svg) ![GitHub issues](https://img.shields.io/github/issues/JFtechOfficial/hyperion-client.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JFtechOfficial/hyperion-client.svg) ![GitHub top language](https://img.shields.io/github/languages/top/JFtechOfficial/hyperion-client.svg)
 
 Client module for the Hyperion JSON interface. You can also read this in [Italiano🇮🇹](README-it-IT.md)
 
