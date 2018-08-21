@@ -40,11 +40,11 @@ In order to use this module you have to import it in your python project
 import hyperion_client as hy
 ```
 ### New client
-Create a new client by simpy instanciating a new hyperion_client object
+Create a new client by instantiating a new hyperion_client object
 ```python
 h = hy.hyperion_client()
 ```
-If the machine running the client is different from the one running the Hyperion server, then you have to specify the IP address of the machine running Hyperion. If you modified the default JSON interface port of your Hyperion instance, you can specify it here
+If the machine running the client is different from the one running the Hyperion server, you have to specify the IP address of the machine running Hyperion. If you modified the default JSON interface port of your Hyperion instance, you can specify it here
 ```python
 h = hy.hyperion_client('192.168.1.42', 19444)
 ```
@@ -58,6 +58,7 @@ You can also modify the timout duration of the connection attempt (by default: 1
 ```python
 h.open_connection(timeout=10)
 ```
+if you try to [**Get**](##-Get-server-info) from the server without opening a connection first, the function will try to automtically connect
 
 ### Disconnect
 Disconnect from the Hyperion server
