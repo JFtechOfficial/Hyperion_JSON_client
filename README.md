@@ -24,7 +24,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 ### Requirements
 
-* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested). You'll need to know the local IP address of this machine 
+* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested). You need to know the local IP address of the machine you installed it
 
 
 ## 💾 Installation
@@ -97,16 +97,41 @@ retrive all the usefull information form the Hyperion server, formatted in JSON 
 ```python
 my_server_info = h.serverinfo()
 ```
+
 ### Get effects info
 retrive the list of all the available effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect name)
 ```python
 my_effects = h.effects()
 ```
+
 ### Get effects name
-retrive the list of all the available effects names form the Hyperion server, formatted in JSON
+retrive the list of all the available effects names form the Hyperion server
 ```python
 my_effects_names = h.effects_names()
 ```
+
+### Get active effects info
+retrive the list of all the active effects info form the Hyperion server, formatted in JSON (e.g.: effect name, effect script path, effect name)
+```python
+my_active_effects = h.active_effects()
+```
+
+### Get active effects name
+retrive the list of all the active effects names form the Hyperion server.
+```python
+my_active_effects_names = h.active_effects_names()
+```
+
+### Get active effects name
+retrive a list containing the RGB, HEX, HLS value of the active color form the Hyperion server.
+```python
+my_active_color = h.active_color()
+```
+You can specify one of the modes to get only that one
+```python
+my_RGB_color = h.active_color("RGB")
+```
+
 - - - -
 ### Set
 
