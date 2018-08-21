@@ -225,7 +225,7 @@ Answer.
 
 ## 🗓️ Release History
 
-* 16/08/2018 - 1.0 - first release
+* 16/08/2018 - 0.1.0 - beta release
 
 
 ## 🎓 License
