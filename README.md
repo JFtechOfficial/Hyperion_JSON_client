@@ -24,7 +24,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 ### Requirements
 
-* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested). You need to know the local IP address of the machine you installed it
+* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested). You need to know the local IP address of the machine you installed Hyperion on
 
 
 ## 💾 Installation
