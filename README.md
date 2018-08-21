@@ -177,7 +177,7 @@ h.clear_all()
 ```
 
 ### Send custom data
- Send a bytearray of the led data (r,g,b) * hyperion.ledcount
+ Send a bytearray of the led data (r,g,b) * number of leds (aka hyperion.ledcount)
 ```python
 h.send_led_data(my_led_data)
 ```
