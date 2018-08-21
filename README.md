@@ -24,7 +24,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 
 ### Requirements
 
-* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested).
+* An instance of [Hyperion](https://hyperion-project.org) installed and configured (installation and configuration via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information) is suggested). You'll need to know the local IP address of this machine 
 
 
 ## 💾 Installation
@@ -42,9 +42,12 @@ import hyperion_client as hy
 ### New client
 Create a new client by simpy instanciating a new hyperion_client object
 ```python
+h = hy.hyperion_client()
+```
+If the machine running the client is different from the one running the Hyperion server, then you have to specify the IP address of the machine running Hyperion. If you modified the default JSON interface port of your Hyperion instance, you can specify it here
+```python
 h = hy.hyperion_client('192.168.1.42', 19444)
 ```
-It requires the IP address of the machine running Hyperion and the JSON interface port of your Hyperion instance (by default: 19444).
  
 ### Connect
 Connect to the Hyperion server
@@ -61,6 +64,33 @@ Disconnect from the Hyperion server
 ```python
 h.close_connection()
 ```
+
+### Change host
+Change the IP address of the Hyperion server you want to connect to.
+```python
+h.host = '192.168.1.42'
+```
+When you change the host you need to reconnect.
+
+### Get host
+Get the IP address of the Hyperion server you want to connect to.
+```python
+my_host = h.host()
+```
+
+### Change port
+Change the port of the Hyperion server you want to connect to.
+```python
+h.port = 19444
+```
+When you change the port you need to reconnect.
+
+### Get port
+Get the port of the Hyperion server you want to connect to.
+```python
+my_port = h.port()
+```
+
 - - - -
 ### Get server info
 retrive all the usefull information form the Hyperion server, formatted in JSON (e.g.: active effects, active color, active color transforms, available effects, etc...)
