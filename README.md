@@ -32,6 +32,7 @@ Open a terminal window and run the command:
 ```shell
 pip install hyperion-client
 ```
+*NOT IMPLEMENTED YET!*
 
 
 ## ▶️ Usage
