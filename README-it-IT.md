@@ -162,7 +162,7 @@ h.set_effect('Rainbow swirl fast', priority=100, effectArgs=my_args, duration=10
 ```
 
 ### Clear
-Spegni l'effetto/colore attivo con più alta priorità (con valore di priority minore)
+Spegni l'effetto/colore attivo con priorità più alta (con valore di priority minore)
 ```python
 h.clear()
 ```
