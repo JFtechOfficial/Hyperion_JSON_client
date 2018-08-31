@@ -2,7 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) ![license](https://img.shields.io/github/license/JFtechOfficial/hyperion-client.svg) ![GitHub issues](https://img.shields.io/github/issues/JFtechOfficial/hyperion-client.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JFtechOfficial/hyperion-client.svg) ![GitHub top language](https://img.shields.io/github/languages/top/JFtechOfficial/hyperion-client.svg)
 
-Client module for the Hyperion JSON interface. You can also read this in [Italiano🇮🇹](README-it-IT.md)
+Client module for the Hyperion JSON interface. You can also read this in [Italiano🇮🇹](https://github.com/JFtechOfficial/hyperion-client/edit/master/README-it-IT.md)
 
 
 ## 🚀 Getting started
@@ -124,7 +124,7 @@ retrive a list containing the RGB, HEX, HLS values of the active color form the 
 ```python
 my_active_color = h.active_color()
 ```
-You can specify one of the modes (RGB/HEX/HLS) to get only that one
+You can specify one of the modes (RGB/HEX/HLS) to get only corresponding value
 ```python
 my_RGB_color = h.active_color("RGB")
 ```
