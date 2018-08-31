@@ -23,7 +23,7 @@ Client module for the Hyperion JSON interface. You can also read this in [Englis
 
 ### Requisiti
 
-* Un'instanza di [Hyperion](https://hyperion-project.org) installata e configurata (è suggerita l'installazione e la configurazione via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information)).devi conoscere l'indirizzo IP locale della macchina su cui hai installato Hyperion
+* Un'instanza di [Hyperion](https://hyperion-project.org) installata e configurata (è suggerita l'installazione e la configurazione via [HyperCon](https://hyperion-project.org/wiki/HyperCon-Information)). è necessario conoscere l'indirizzo IP locale della macchina su cui è installato Hyperion
 
 
 ## 💾 Installazione
