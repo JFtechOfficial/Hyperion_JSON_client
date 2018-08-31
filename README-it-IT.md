@@ -207,7 +207,6 @@ Leggi [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## ❤️ Crediti
 
-Major dependencies:
 * [hyperion](https://github.com/hyperion-project/hyperion)
 
 
