@@ -17,7 +17,6 @@ Client module for the Hyperion JSON interface. You can also read this in [Italia
 * [Contributing](#-contributing)
 * [Credits](#️-credits)
 * [Support Me!](#-support-me)
-* [FAQ](#-faq)
 * [Release History](#️-release-history)
 * [License](#-license)
 </details>
