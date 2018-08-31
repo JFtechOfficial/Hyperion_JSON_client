@@ -198,7 +198,7 @@ There are also functions to set:
 
 ## 📚 Resources
 
-Something
+[Hyperion-controller](https://github.com/JFtechOfficial/hyperion-controller) uses this module
 
 
 ## 🎁 Contributing
