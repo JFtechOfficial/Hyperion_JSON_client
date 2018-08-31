@@ -217,13 +217,6 @@ Major dependencies:
  [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/Y8Y0FW3V)
 
 
-## 💭 FAQ
-
-> Question?
-
-Answer.
-
-
 ## 🗓️ Release History
 
 * 16/08/2018 - 0.1.0 - beta release
